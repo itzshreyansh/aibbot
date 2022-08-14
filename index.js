@@ -146,7 +146,7 @@ const prefix = "!";
 
 require("dotenv").config();
 const myNumber = process.env.myNumber;
-const aib = process.env.aib;
+const pvx = process.env.pvx;
 
 const { setCountMember } = require("./db/countMemberDB");
 const { setCountVideo } = require("./db/countVideoDB");
@@ -157,6 +157,21 @@ const { getCountVideo } = require("./db/countVideoDB");
 
 let countSent = 1;
 let commandSent = 1;
+
+let pvxcommunity = "919557666582-1467533860@g.us";
+let pvxprogrammer = "919557666582-1584193120@g.us";
+let pvxadmin = "919557666582-1498394056@g.us";
+let pvxstudy = "919557666582-1617595892@g.us";
+let pvxmano = "19016677357-1630334490@g.us";
+let pvxtech = "919557666582-1551290369@g.us";
+let pvxsport = "919557666582-1559476348@g.us";
+let pvxmovies = "919557666582-1506690003@g.us";
+let pvxsticker1 = "919557666582-1580308963@g.us";
+let pvxsticker2 = "919557666582-1621700558@g.us";
+let pvxstickeronly1 = "919557666582-1628610549@g.us";
+let pvxstickeronly2 = "919557666582-1586018947@g.us";
+let mano = "19016677357-1630334490@g.us";
+let pvxdeals = "919557666582-1582555632@g.us";
 
 const addCommands = async () => {
   console.log("Commands Added!");
@@ -278,7 +293,47 @@ const startSock = async () => {
 
   store.bind(sock.ev);
 
- 
+  if (pvx) {
+    let usedDate = new Date()
+      .toLocaleString("en-GB", { timeZone: "Asia/kolkata" })
+      .split(",")[0];
+
+    const checkTodayBday = async (todayDate) => {
+      console.log("CHECKING TODAY BDAY...", todayDate);
+      todayDate = todayDate.split("/");
+      let d = todayDate[0];
+      d = d.startsWith("0") ? d[1] : d;
+      let m = todayDate[1];
+      m = m.startsWith("0") ? m[1] : m;
+      let url = "https://pvxgroup.herokuapp.com/api/bday";
+      let { data } = await axios.get(url);
+      let bday = [];
+
+      data.data.forEach((member) => {
+        if (member.month == m && member.date == d) {
+          bday.push(
+            `${member.name.toUpperCase()} (${member.username.toUpperCase()})`
+          );
+          console.log(`Today is ${member.name} Birthday!`);
+        }
+      });
+      if (bday.length) {
+        let bdayComb = bday.join(" & ");
+        await sock.sendMessage(pvxcommunity, {
+          text: `*─「 🔥 <{PVX}> BOT 🔥 」─* \n\nToday is ${bdayComb} Birthday 🍰 🎉🎉`,
+        });
+      } else {
+        console.log("NO BIRTHDAY!");
+        await sock.sendMessage(pvxcommunity, {
+          text: `*─「 🔥 <{PVX}> BOT 🔥 」─* \n\nThere is no Birthday today!`,
+        });
+      }
+      try {
+        await sock.groupUpdateSubject(pvxcommunity, "<{PVX}> COMMUNITY ❤️");
+      } catch (err) {
+        console.log(err);
+      }
+    };
 
     const postTechNews = async (count) => {
       if (count > 20) {
@@ -350,7 +405,7 @@ const startSock = async () => {
     };
 
     const kickZeroMano = async () => {
-      let resultCountGroupIndi = await getCountVideo(AIBmano);
+      let resultCountGroupIndi = await getCountVideo(pvxmano);
 
       let memWithMsg = new Set();
       for (let member of resultCountGroupIndi) {
@@ -375,7 +430,7 @@ const startSock = async () => {
         text: `Removing  @${num_split}\nReason: 0 videos count! `,
         mentions: [randomMemId],
       });
-      await sock.groupParticipantsUpdate(AIBmano, [randomMemId], "remove");
+      await sock.groupParticipantsUpdate(pvxmano, [randomMemId], "remove");
 
       // randomMemId = zeroMano[Math.floor(Math.random() * zeroMano.length)];
       // num_split = `${randomMemId.split("@s.whatsapp.net")[0]}`;
@@ -384,7 +439,7 @@ const startSock = async () => {
       //   text: `Removing  @${num_split}\nReason: 0 videos count! `,
       //   mentions: [randomMemId],
       // });
-      // await sock.groupParticipantsUpdate(AIBmano, [randomMemId], "remove");
+      // await sock.groupParticipantsUpdate(pvxmano, [randomMemId], "remove");
     };
 
     dateCheckerInterval = setInterval(() => {
@@ -459,10 +514,10 @@ const startSock = async () => {
         // blockCommandsInDesc.includes("only91")
         if (
           !num_split.startsWith(91) &&
-          groupSubject.toUpperCase().includes("<{AIB}>")
+          groupSubject.toUpperCase().includes("<{PVX}>")
         ) {
           await sock.sendMessage(from, {
-            text: `*─「 🔥 <{AIB}> BOT 🔥 」─* \n\nOnly +91 numbers are allowed !!!!`,
+            text: `*─「 🔥 <{PVX}> BOT 🔥 」─* \n\nOnly +91 numbers are allowed !!!!`,
           });
           await sock.groupParticipantsUpdate(from, [numJid], "remove");
 
@@ -478,7 +533,7 @@ const startSock = async () => {
         // console.log(blacklistRes);
         if (blacklistRes.includes(num_split)) {
           await sock.sendMessage(from, {
-            text: `*─「 🔥 <{AIB}> BOT 🔥 」─* \n\nNumber is blacklisted !!!!`,
+            text: `*─「 🔥 <{PVX}> BOT 🔥 」─* \n\nNumber is blacklisted !!!!`,
           });
 
           await sock.groupParticipantsUpdate(from, [numJid], "remove");
@@ -488,6 +543,53 @@ const startSock = async () => {
           return;
         }
 
+        //for study group
+        if (from === pvxstudy) {
+          await sock.sendMessage(from, {
+            text: `Welcome @${num_split} to PVX Study group.\nhttps://pvxcommunity.com/\n\nKindly fill the Biodata form (mandatory for all)\n\n👇🏻👇🏻👇🏻👇🏻👇🏻\nhttps://forms.gle/uuvUwV5fTk8JAjoTA`,
+            mentions: [numJid],
+          });
+        }
+
+        //for movies group
+        if (from === pvxmovies) {
+          await sock.sendMessage(from, {
+            text: `Welcome @${num_split} to PVX Movies.\nhttps://pvxcommunity.com/\n\nWhat are your currently watching..?`,
+            mentions: [numJid],
+          });
+        }
+
+        //for community group
+        if (from === pvxcommunity) {
+          await sock.sendMessage(from, {
+            text: `Welcome @${num_split} to PVX COMMUNITY.\nhttps://pvxcommunity.com/\n\nSend ${prefix}rules to know all PVX rules.\nIf you're new to PVX, please share how did you find us.`,
+            mentions: [numJid],
+          });
+        }
+
+        //for mano
+        if (from === pvxmano) {
+          await sock.sendMessage(from, {
+            text: `Welcome  @${num_split} to PVX MANORANJAN 🔥\n\n1) Send videos regularly especially new members.\n2) Don't Send CP or any other illegal videos.\n 3) A group bot will be counting the number of videos you've sent.\nSend ${prefix}pvxv to know video count.\nInactive members will be kicked time to time.`,
+            mentions: [numJid],
+          });
+        }
+
+        //for programmer group
+        if (from === pvxprogrammer) {
+          await sock.sendMessage(from, {
+            text: `Welcome @${num_split} to PVX Programmers Group.\nhttps://pvxcommunity.com/\n\n*Kindly give your intro like*\nName:\nCollege/Degree:\nInterest:\nSkills:\nCompany(if working):`,
+            mentions: [numJid],
+          });
+        }
+
+        if (from === pvxsticker1 || from === pvxsticker2) {
+          await sock.sendMessage(from, {
+            text: `Welcome @${num_split} to PVX Stickers\nhttps://pvxcommunity.com/\n\n1) Don't make any type of sticker that targets any caste, community, religion, sex, creed, etc.\n2) The use of any kind of 18+ media (be it nudes or semi nudes) is not allowed.\n3) Every sticker you make here gets PVX branding in it along with website, so You'll get instant ban on disobeying any rule`,
+            mentions: [numJid],
+          });
+        }
+
         let botNumberJid = sock.user.id; //'1506xxxxx54:3@s.whatsapp.net'
         botNumberJid =
           botNumberJid.slice(0, botNumberJid.search(":")) +
@@ -495,7 +597,7 @@ const startSock = async () => {
         if (numJid === botNumberJid) {
           console.log("Bot is added to new group!");
           // await sock.sendMessage(myNumber + "@s.whatsapp.net", {
-          //   text: `*─「 🔥 <{AIB}> BOT 🔥 」─* \n\nSEND ${prefix}help FOR BOT COMMANDS`,
+          //   text: `*─「 🔥 <{PVX}> BOT 🔥 」─* \n\nSEND ${prefix}help FOR BOT COMMANDS`,
           // });
         }
         console.log(`[GROUP] ${groupSubject} [JOINED] ${numJid}`);
@@ -561,16 +663,34 @@ const startSock = async () => {
           sender.slice(sender.search("@"));
       const senderName = msg.pushName;
 
-           //Forward all stickers
+      //Count message
+      if (
+        isGroup &&
+        groupName.toUpperCase().includes("<{PVX}>") &&
+        from !== pvxstickeronly1 &&
+        from != pvxstickeronly2 &&
+        from != pvxdeals
+      ) {
+        setCountMember(sender, from, senderName);
+      }
+
+      //count video
+      if (isGroup && from == pvxmano && msg.message.videoMessage) {
+        setCountVideo(sender, from);
+      }
+
+      //Forward all stickers
       if (
         pvx &&
         isGroup &&
         msg.message.stickerMessage &&
-        groupName.toUpperCase().startsWith("<{AIB}>") &&
-       
+        groupName.toUpperCase().startsWith("<{PVX}>") &&
+        from !== pvxstickeronly1 &&
+        from != pvxstickeronly2 &&
+        from !== mano
       ) {
         // msg.key.fromMe == false &&
-        // "<{AIB}> BOT 🤖"
+        // "<{PVX}> BOT 🤖"
 
         let downloadFilePath = msg.message.stickerMessage;
         const stream = await downloadContentFromMessage(
@@ -583,8 +703,8 @@ const startSock = async () => {
         }
 
         const sticker = new Sticker(buffer, {
-          pack: "AIB BOT 🤖",
-          author: "AIB COMMUNITY",
+          pack: "BOT 🤖",
+          author: "pvxcommunity.com",
           type: StickerTypes.DEFAULT,
           quality: 80,
         });
@@ -858,7 +978,7 @@ const startSock = async () => {
       await sock.sendMessage(
         from,
         {
-          text: `Send ${prefix}help for <{PVX}> AIB commands!`,
+          text: `Send ${prefix}help for <{PVX}> BOT commands!`,
         },
         { quoted: m.messages[0] }
       );
