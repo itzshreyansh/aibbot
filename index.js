@@ -158,10 +158,6 @@ const { getCountVideo } = require("./db/countVideoDB");
 let countSent = 1;
 let commandSent = 1;
 
-let AIB  = "919651176395-1467533860@g.us";
-let BACKCHODI ADDA = "918887973689-1584193120@g.us";
-let AIB 18+ = "919651176395-1498394056@g.us";
-
 const addCommands = async () => {
   console.log("Commands Added!");
   let path = "./commands/public/";
