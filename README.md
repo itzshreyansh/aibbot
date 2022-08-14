@@ -1,201 +1,201 @@
-## New Multi Device Whatsapp Bot
+<p align="center">
+<img src="https://avatars2.githubusercontent.com/u/53950128?s=460&u=09f530e3326f710c4e0f9106f094eeea5429f86d&v=4" width="128" height="128"/>
+</p>
+<p align="center">
+<a href="#"><img title="Whatsapp-Bot" src="https://img.shields.io/badge/Whatsapp Bot-green?colorA=%23ff0000&colorB=%23017e40&style=for-the-badge"></a>
+</p>
+<p align="center">
+<a href="https://github.com/ArugaZ"><img title="Author" src="https://img.shields.io/badge/AUTHOR-ARUGAZ-orange.svg?style=for-the-badge&logo=github"></a>
+</p>
+<p align="center">
+<a href="https://www.codefactor.io/repository/github/arugaz/whatsapp-bot/overview/master"><img title="Rating" src="https://www.codefactor.io/repository/github/arugaz/whatsapp-bot/badge/master"></a>
+</p>
+<p align="center">
+<a href="https://github.com/arugaz/followers"><img title="Followers" src="https://img.shields.io/github/followers/arugaz?color=blue&style=flat-square"></a>
+<a href="https://github.com/arugaz/whatsapp-bot/stargazers/"><img title="Stars" src="https://img.shields.io/github/stars/arugaz/whatsapp-bot?color=red&style=flat-square"></a>
+<a href="https://github.com/arugaz/whatsapp-bot/network/members"><img title="Forks" src="https://img.shields.io/github/forks/arugaz/whatsapp-bot?color=red&style=flat-square"></a>
+<a href="https://github.com/arugaz/whatsapp-bot/watchers"><img title="Watching" src="https://img.shields.io/github/watchers/arugaz/whatsapp-bot?label=Watchers&color=blue&style=flat-square"></a>
+<a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FArugaZ%2Fwhatsapp-bot&count_bg=%2379C83D&title_bg=%23555555&icon=probot.svg&icon_color=%2300FF6D&title=hits&edge_flat=false"/></a>
+</p>
+<div align="center">
+<details>
+ <summary>🥟 Help me!</summary>
+ 
+ [Trakteer](https://trakteer.id/arugabot)
+ 
+</details>
 
-Easy deploy your bot, steps in the bottom.
+ini semua gratis, jangan pelit ⭐️ ya :D
+<p align="center"><a href="https://www.arugaz.my.id" target="_blank">ArugaZ Rest Api</a>.</p>
+<p align="center"><a href="https://instagram.com/ini.kocakz/" target="_blank">Chat me on Insta</a>.</p>
+</div>
 
-**_Requirements :_**
+## Getting Started
 
-- Heroku account
-- Heroku cli
-- Git
+This project require NodeJS v12.
 
-# Instructions:- :rocket:
+### Install
+Clone this project
 
-## Git Setup
+```bash
+> git clone https://github.com/ArugaZ/whatsapp-bot.git
+> cd whatsapp-bot
+```
 
-### Download and install git from (https://git-scm.com/downloads)
+Install the dependencies:
 
-## Heroku Setup
+```bash
+> npm install 
+> npm install gify-cli -g
+```
 
-1. Create account on heroku. (https://signup.heroku.com/)
+### Usage
+Run the Whatsapp bot
 
-2. After login on heroku dashboard create an app on heroku (https://dashboard.heroku.com/apps)
+```bash
+> npm start
+```
 
-3. In the 'Resources' tab search for 'Heroku Postgres' in Add-ons and add it to your heroku app.
+after running it you need to scan the qr
 
-4. In the 'Deploy' section download Heroku CLI or from (https://devcenter.heroku.com/articles/heroku-cli#download-and-install)
+### Information
+- Change ownerNumber on [this section](https://github.com/ArugaZ/whatsapp-bot/blob/master/settings/setting.json#L2)
+- Change groupLimit on [this section](https://github.com/ArugaZ/whatsapp-bot/blob/master/settings/setting.json#L3)
+- Change memberLimit on [this section](https://github.com/ArugaZ/whatsapp-bot/blob/master/settings/setting.json#L4)
+- Change prefix on [this section](https://github.com/ArugaZ/whatsapp-bot/blob/master/settings/setting.json#L5)
+- Change menu on [this section](https://github.com/ArugaZ/whatsapp-bot/blob/master/lib/menu.js#L32)
+- Add kata kasar on [this section](https://github.com/ArugaZ/whatsapp-bot/blob/master/lib/kataKotor.js#L8)
+- Change all apiKey on [this section](https://github.com/ArugaZ/whatsapp-bot/blob/master/settings/api.json)
+- Get Api NoBackground on [this website](https://www.remove.bg/)
+- Get Api ScreenShot on [this website](https://apiflash.com/)
+- Get Api Simi-simi on [this website](https://workshop.simsimi.com/en/), masih limit api simi-siminya? [cek ini](https://github.com/ArugaZ/whatsapp-bot/issues/38#issuecomment-726981060)
 
-## Heroku CLI
+---
 
-1. After downloading and installing Heroku CLI in your system login to heroku cli using `heroku login` in command prompt or powershell.
-2. Add ffmpeg (_for sticker support_) in your heroku app using `heroku buildpacks:add https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git -a <your-app-name>`
-3. After adding ffmpeg now add 'Heroku Buildpack for Node.js' using `heroku buildpacks:add https://github.com/heroku/heroku-buildpack-nodejs.git -a <your-app-name>`
-4. Now download or clone the whatsapp-bot repo by `git clone https://github.com/Shubhamrawat5/whatsapp-bot-md.git`
-5. Now enter in whatsapp-bot directory using `cd whatsapp-bot-md` in command prompt or terminal.
-6. Create the remote region using `heroku git:remote -a <your-app-name>`
-7. Now push the local repo in your heroku app using `git push heroku master`
-8. Now after the deploy process is completed use `heroku logs -a <your-app-name> --tail` to get real time logs from heroku app.
-9. In real time logs it will automatically ask you for login using qr code just simple scan the qr code using your whatsapp web section, and you are done.
+## Features
 
-Now Bot will start working!! Work even if the device is offline!!
+| 18+ |Yes|
+| ------------- | ------------- |
+| Nekopoi |✅|
 
-# Features:- :rocket:
+| Creator |Yes|
+| ------------- | ------------- |
+| Respond img to sticker|✅|
+| Respond img to sticker no bg|✅|
+| Respond url to sticker|✅|
+| Respond gif to sticker|✅|
+| Respond giphy url to sticker|✅|
+| Make a meme from photo|✅|
+| Quotes maker result pict|✅|
+| Nulis Bot|✅|
 
-1. It count messages of every member in all the groups in DB. (just the message count, not actual text message), so that we can see stats like top members, top groups, etc.
-2. It also forwards every sticker that is sent to any of the PVX groups to another group i.e. Sticker Only, where members can have access to different different types of stickers 24x7.
-3. It posts tech news to tech group and trending india news to study group every 20 min.
-4. It notifys the birthday in the community group when new day starts.
-5. It welcomes new users when joined with some questions/rules.
-6. It automatically bans any user with a non-Indian number (any number without +91 code).
+| Islam |Yes|
+| ------------- | ------------- |
+| List Surah|✅|
+| Info Surah|✅|
+| Surah|✅|
+| Tafsir Alquran|✅|
+| Alquran Audio/Voice|✅|
+| Jadwal solat|✅|
 
-## Default prefix : `!`
+| Downloader |Yes|
+| ------------- | ------------- |
+| Youtube Music |✅|
+| Youtube Video |✅|
+| Facebook |✅|
 
-## Commands :
+| Fun Group! |Yes|
+| ------------- | ------------- |
+| Simi-simi BOT|✅|
+| Anti kata kasar|✅|
 
-|  Public Commands  |          Description           | Alias |
-| :---------------: | :----------------------------: | :---: |
-|      `!help`      |    Display public commands     | `!h`  |
-|     `!helpa`      |     Display admin commands     |       |
-|     `!helpo`      |   Display bot owner commands   |       |
-|    `!donation`    |      Get Donation details      |       |
-|     `!delete`     |     Delete message of bot      | `!d`  |
-|     `!alive`      |     Check bot is ON or OFF     | `!a`  |
-|    `!feedback`    |       Get feedback form        |       |
-|  `!votecommand`   |   Get list of vote commands    | `!vc` |
-|    `!pvxlink`     |     Get group links of PVX     |       |
-|      `!dev`       |     Get the contact of dev     |       |
-| `!cricketcommand` |  Get list of cricket commands  | `!cc` |
-|     `!source`     |       Get the bot source       |       |
-|     `!steal`      | Change sticker name to PVX BOT |       |
+| Primbon |Yes|
+| ------------- | ------------- |
+| Arti nama |✅|
+| Cek Jodoh |✅|
 
-<hr>
+| Searchs |Yes|
+| ------------- | ------------- |
+| Images |✅|
+| Subreddit |✅|
+| Resep makanan |✅|
+| Stalk IG |✅|
+| Wikipedia |✅|
+| Cuaca |✅|
+| Chord musik |✅|
+| Lirik musik |✅|
+| Screen Crot!|✅|
+| Play music|✅|
+| whats anime?|✅|
 
-| Member Commands |                    Description                    |  Alias   |
-| :-------------: | :-----------------------------------------------: | :------: |
-|    `!count`     |        Know message count in current group        |          |
-|    `!total`     |       Know message count in all PVX groups        |          |
-|     `!rank`     |    Know message count & rank in all PVX groups    |          |
-|    `!ranks`     |           Know ranks list of PVX groups           |          |
-|    `!totalg`    |    Know message count group wise in PVX groups    |          |
-|   `!sticker`    |     Create sticker from different media types     |   `!s`   |
-|    `!block`     |      To block particular commands for group       |          |
-|    `!image`     |             Create image from sticker             |          |
-|     `!song`     |           Get any song in good quality            |          |
-|    `!insta`     |          Get insta reels or post videos           |   `!i`   |
-|      `!fb`      |                Get facebook videos                |          |
-|     `!ytv`      |              Download youtube videos              |          |
-|     `!yta`      |              Download youtube audio               |          |
-|   `!technews`   |               Get latest Tech news                |          |
-|    `!drive`     |           Get GDrive files direct link            |          |
-|    `!quote`     |                Give a random quote                |          |
-|    `!gender`    |            Get gender from first name             |          |
-|    `!score`     |                Give Cricket score                 |          |
-|  `!scorecard`   |              Give Cricket scorecard               |  `!sc`   |
-|    `!startc`    |            Start Cricket score updated            |          |
-|    `!stopc`     |            Stop Cricket score updated             |          |
-|  `!startvote`   |               Start voting in group               |          |
-|     `!vote`     |                 Vote for a choice                 |          |
-|  `!checkvote`   |          Check status of current voting           |  `!cv`   |
-|   `!stotvote`   |            Stop voting and see result             |          |
-|   `!votepvx`    |       Vote for a choice for all PVX groups        |          |
-| `!checkvotepvx` | Check status of current voting for all PVX groups | `!cvpvx` |
-|    `!rules`     |               Get PVX groups rules                |   `!r`   |
+| Random text |Yes|
+| ------------- | ------------- |
+| Pantun pakboy|✅|
+| Fakta Menarik|✅|
+| Kata Bijak|✅|
+| Quotes|✅|
+| Cerita Sex|✅|
+| Cerita Pendek|✅|
+| Puisi|✅|
 
-<hr>
+| Random image |Yes|
+| ------------- | ------------- |
+| Anime |✅|
+| Kpop |✅|
+| Memes |✅|
 
-|   Admin Commands   |                       Description                       |  Alias  |
-| :----------------: | :-----------------------------------------------------: | :-----: |
-|       `!add`       |                   Add member to group                   |         |
-|      `!kick`       |                 kick member from group                  | `!ban`  |
-|      `!mute`       |                     Mute the group                      |         |
-|     `!unmute`      |                    Unmute the group                     |         |
-|    `!tagadmins`    |                 Tag all admins of group                 |  `!ta`  |
-|     `!warning`     |                  Give warning to user                   | `!warn` |
-|      `!pvxg`       |          Get message count stats of PVX groups          |         |
-|      `!pvxm`       |  Get members message count stats of current PVX group   |         |
-|      `!pvxt`       |    Get top members message count stats of PVX groups    |         |
-|      `!pvxt5`      | Get top 5 members message count stats of all PVX groups |         |
-|      `!zero`       |          Get members list with 0 message count          |         |
-|    `!pvxstats`     |                 Get stats of PVX groups                 |         |
-|    `!blacklist`    |                  Get blacklist numbers                  |         |
-|  `!blacklistadd`   |                 Add number to blacklist                 | `!bla`  |
-| `!blacklistremove` |              Remove number from blacklist               | `!blr`  |
 
-<hr>
+| Others |Yes|
+| ------------- | ------------- |
+| Teks to Sound/Voice|✅|
+| Translate teks|✅|
+| Get covid info from map|✅|
+| Covid-19 Indo|✅|
+| Shortlink|✅|
+| Bap4k F0nt|✅|
 
-| Owner Commands  |                  Description                  | Alias |
-| :-------------: | :-------------------------------------------: | :---: |
-| `!donationadd`  |             Add Donation details              | `!da` |
-|  `!countstats`  |      Get stats of number of command used      |       |
-|     `!test`     |      execute code with whatsapp directly      |       |
-|  `!broadcast`   |       Broadcast a message to all groups       | `!bc` |
-|    `!tagall`    |           Tag all members in group            |       |
-|    `!gname`     |            Save group names to DB             |       |
-|      `!tg`      |            Make TG to WA stickers             |       |
-|     `!stg`      |            Stop TG to WA stickers             |       |
-| `!groupbackup`  |            Take group backup in DB            |       |
-| `!startvotepvx` |        Start voting for all PVX groups        |       |
-| `!stotvotepvx`  | Stop voting and see result for all PVX groups |       |
+| Groups |Yes|
+| ------------- | ------------- |
+| Owner||
+| Kick all members|✅|
+| Admin||
+| Add user|✅|
+| Kick user|✅|
+| Promote User|✅|
+| Demote User|✅|
+| Mute Group|✅|
+| Change Group icon|✅|
+| Delete bot msg|✅|
+| Tagall/mentions all|✅|
+| Welcome ON/OFF|✅|
 
-- CRICKET SCORES:
 
-  > Put match id in starting of group description.
+| Owner bot |Yes|
+| ------------- | ------------- |
+| Broadcast|✅|
+| Leave all group|✅|
+| Delete all msgs|✅|
+| Banned user|✅|
 
-  > Get match ID from cricbuzz url, like https://www.cricbuzz.com/live-cricket-scores/37572/mi-vs-kkr-34th-match-indian-premier-league-2021 so match ID is `37572`
 
-- Block any command for particular group
+## To-Do
+ - Add Media Downloader
+ - Add More Feature
+ - More refactoring
+ 
+---
 
-  > Give command name (with comma seperated and without spaces) to be blocked in first line of group description like `score,add,quote`
+## Troubleshooting
+Make sure all the necessary dependencies are installed: https://github.com/puppeteer/puppeteer/blob/main/docs/troubleshooting.md
 
-  > If matchId is to be added in description along with blocked commands then add in starting of first line, like `82621,score,add,quote`
+Fix Stuck on linux, install google chrome stable: 
+```bash
+> wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+> sudo apt install ./google-chrome-stable_current_amd64.deb
+```
 
-- Other than 91 numbers are not allowed
-
-  > Put `only91` text in first line of description of group to instant ban every number joined other than 91 indian numbers
-
-- GROUP DESCRIPTION EXAMPLE:
-
-   <img src="https://i.ibb.co/2Z8t9Qm/IMG-20211006-154704.jpg" width="400"/>
-
-  > Always put match ID in starting of first line!
-
-  > `91only` is command name and `only91` is to ban
-
-# Run locally:- :rocket:
-
-Create a `.env` file for enviromental variables in local directory with following values without quote
-
-    myNumber = "your-number-to-receive-all-updates"
-    DATABASE_URL = "get-from-heroku-dashboard"
-
-Get value of database_url from Heroku dashboard > settings > reveal config vars
-
-Run the index file by `node index.js`
-
-# Note:- :rocket:
-
-Since heroku uses:- Dyno sleeping in which if an app has a free web dyno, and that dyno receives no web traffic in a 30-minute period, it will sleep. In addition to the web dyno sleeping, the worker dyno (if present) will also sleep. and if a sleeping web dyno receives web traffic, it will become active again after a short delay (assuming your account has free dyno hours available)
-You can use (http://kaffeine.herokuapp.com) to ping the heroku app every 30 minutes to prevent it from sleeping.
-
-# References:- :rocket:
-
-- [@Baileys](https://github.com/adiwajshing/Baileys)
-- Old non md wa bot [PVX Bot](https://github.com/Shubhamrawat5/whatsapp-bot).
-
-# Easy way to deploy:- :rocket:
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Shubhamrawat5/whatsapp-bot-md)
-
-Your bot will be deployed on heroku but still you need to install heroku locally to scan QR code
-
-1. Download Heroku CLI from [here](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)
-2. Open terminal
-3. Type command `heroku login` and give access
-4. Type command `heroku logs -a <your-app-name> --tail`
-
-Now you'll see QR code, scan with your device and bot will start working!
-
-- To get owner commands
-
-  Go to heroku daskboard then settings then config vars
-
-  Add KEY as `myNumber` and VALUE as `911234567890` (your number with country code and no + sign)
+## Thanks to
+- [WA-Automate](https://github.com/open-wa/wa-automate-nodejs)
+- [YogaSakti](https://github.com/YogaSakti/imageToSticker)
+- [MhankBarBar](https://github.com/MhankBarBar/whatsapp-bot)
+- [dandyraka](https://github.com/dandyraka/NoBadWord)
